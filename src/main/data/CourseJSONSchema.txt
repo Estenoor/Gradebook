@@ -1,0 +1,31 @@
+{
+    "Code": String,     -> ex. CS2040
+    "Name": String,     -> ex. Programming in C and C++
+    "Section": String,  -> ex. 008
+    "uGrade": Number,   -> (unweighted grade) ex. 80.0
+    "wGrade": Number,   -> (weighted grade) ex. 81.0
+    "GradeInfo": [      -> Information on grading (Assignment types w/ weights)
+        {
+            "Type": String,  -> ex. Quiz
+            "Weight": Number -> ex. 0.2
+        },
+        {
+            "Type": String,  -> ex. Exam
+            "Weight": Number -> ex. 0.5
+        },
+    ],
+    "Assignments": [
+        {
+            "Name": String,
+            "Type": String,
+            "earnedPoints": Number,
+            "possiblePoints": Number
+        },
+        {
+            "Name": String,
+            "Type": String,
+            "earnedPoints": Number,
+            "possiblePoints": Number
+        }
+    ]
+}
