@@ -7,6 +7,10 @@
  */
 package main.data.models;
 
+import org.json.simple.JSONObject;
+
+import java.util.UUID;
+
 /**
  * Course:
  * 2020
@@ -16,23 +20,21 @@ package main.data.models;
  * @version created on 12/8/2020 at 11:50 AM
  */
 public class Assignment {
-    private final int id;
+    private final UUID id;
     private String name;
     private String type;
     private double earnedPoints;
     private double possiblePoints;
-    private static int nextID = 0;
 
     public Assignment(String name, String type, double possiblePoints) {
-        this.id = nextID;
-        this.nextID++;
+        this.id = UUID.randomUUID();
         this.name = name;
         this.type = type;
         this.earnedPoints = 0;
         this.possiblePoints = possiblePoints;
     }
 
-    public Assignment(int id, String name, String type, double earnedPoints, double possiblePoints) {
+    public Assignment(UUID id, String name, String type, double earnedPoints, double possiblePoints) {
         this.id = id;
         this.name = name;
         this.type = type;
@@ -40,7 +42,7 @@ public class Assignment {
         this.possiblePoints = possiblePoints;
     }
 
-    public int getID() {
+    public UUID getID() {
         return this.id;
     }
 
@@ -82,5 +84,24 @@ public class Assignment {
 
     public boolean equals(Assignment a) {
         return this.id == a.getID();
+    }
+
+    public JSONObject toJSONObject() {
+        JSONObject output = new JSONObject();
+        output.put("ID", this.id.toString());
+        output.put("Name", this.name);
+        output.put("Type", this.type);
+        output.put("earnedPoints", this.earnedPoints);
+        output.put("possiblePoints", this.possiblePoints);
+        return output;
+    }
+
+    public static Assignment fromJSONObject(JSONObject o) {
+        UUID tempID = UUID.fromString((String)o.get("ID"));
+        String tempName = (String)o.get("Name");
+        String tempType = (String)o.get("Type");
+        double earnedPoints = ((Number)o.get("earnedPoints")).doubleValue();
+        double possiblePoints = ((Number)o.get("possiblePoints")).doubleValue();
+        return new Assignment(tempID, tempName, tempType, earnedPoints, possiblePoints);
     }
 }

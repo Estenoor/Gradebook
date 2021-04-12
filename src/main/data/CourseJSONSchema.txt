@@ -16,14 +16,14 @@
     ],
     "Assignments": [    -> Array containing all assignment for current course
         {
-            "ID": Number,
+            "ID": String,
             "Name": String,
             "Type": String,
             "earnedPoints": Number,
             "possiblePoints": Number
         },
         {
-            "ID": Number,
+            "ID": String,
             "Name": String,
             "Type": String,
             "earnedPoints": Number,
