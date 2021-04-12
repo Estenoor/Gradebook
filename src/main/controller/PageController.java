@@ -56,9 +56,8 @@ public class PageController {
      */
     public static PageController instance() {
         if(instance == null) {
-            return new PageController();
-        } else {
-            return instance;
+            instance = new PageController();
         }
+        return instance;
     }
 }
