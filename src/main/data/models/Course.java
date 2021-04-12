@@ -21,6 +21,7 @@ import java.util.List;
  * @version created on 12/8/2020 at 11:46 AM
  */
 public class Course {
+    private String code;
     private String name;
     private double unweightedGrade;
     private double weightedGrade;
@@ -29,7 +30,8 @@ public class Course {
     private HashMap<String, Double> gradeWeights;
     private HashMap<String, List<Assignment>> assignments;
 
-    public Course(String name) {
+    public Course(String name, String code) {
+        this.code = code;
         this.name = name;
         this.unweightedGrade = 0;
         this.weightedGrade = 0;
