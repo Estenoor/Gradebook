@@ -29,9 +29,13 @@ public class Assignment {
         this.possiblePoints = possiblePoints;
     }
 
-    public double getAssignmentGrade() {
+    public double calculateGrade() {
         return (earnedPoints / possiblePoints);
     }
+
+    public double getEarnedPoints() { return earnedPoints; }
+
+    public double getPossiblePoints() { return possiblePoints; }
 
     public String getName() {
         return name;
